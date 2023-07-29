@@ -5,6 +5,11 @@ function calculateExpression(expression) {
   //Преревіряємо чи аргумент є рядком
   //Якщо так повертаємо виконананий код
   // Якщо ні повертаємо текст "Argument is not a string"
+  if (typeof expression === "string") {
+    return eval(expression);
+  } else {
+    return "Argument is not a string";
+  }
 }
 
 console.log("Завдання 1 ====================================");
@@ -21,6 +26,13 @@ function getNumberFromString(s) {
   // Перевіряємо, чи є отримане значення числом за допомогою isNaN
   // Якщо значення не є числом, повертаємо текст "Couldn't extract a number from the provided string."
   // Якщо значення є числом, повертаємо його
+
+  let num = parseFloat(s);
+  if (isNaN(num)) {
+    return "Couldn't extract a number from the provided string.";
+  } else {
+    return num;
+  }
 }
 
 // Виводимо результати виклику функції
@@ -42,6 +54,12 @@ function getIntegerFromString(s) {
   // Перевіряємо, чи є отримане значення числом за допомогою isNaN
   // Якщо значення не є числом, повертаємо текст "Couldn't extract an integer from the provided string."
   // Якщо значення є числом, повертаємо його
+  let num = parseInt(s);
+  if (isNaN(num)) {
+    return "Couldn't extract a number from the provided string.";
+  } else {
+    return num;
+  }
 }
 
 // Виводимо результати виклику функції
@@ -64,6 +82,9 @@ function isNumberFinite(num) {
   // За допомогою оператора if перевіряємо, чи є число скінченним.
   // Якщо число є скінченним, повертаємо текст "The number is finite.".
   // Якщо число не є скінченним, повертаємо текст "The number is not finite.".
+  if (isFinite(num)) {
+    return "The number is finite.";
+  } else return "The number is not finite.";
 }
 
 // Виконуємо функцію з різними вхідними даними і виводимо результат.
@@ -80,6 +101,9 @@ function isValueNaN(value) {
   // За допомогою оператора if перевіряємо, чи є значення NaN.
   // Якщо значення є NaN, повертаємо текст "The value is NaN.".
   // Якщо значення не є NaN, повертаємо текст  "The value is not NaN.".
+  if (isNaN(value)) {
+    return "The value is NaN.";
+  } else return "The value is not NaN.";
 }
 
 // Виконуємо функцію з різними вхідними даними і виводимо результат.
@@ -93,6 +117,8 @@ console.log("isValueNaN(100)", isValueNaN(100)); // Виведе "The value is n
 function createURLObject(urlStr) {
   // Використовуємо вбудований конструктор URL, щоб створити новий об'єкт URL з введеного рядка.
   // Повертаємо створений об'єкт URL.
+  const url = new URL(urlStr);
+  return url;
 }
 
 // Виконуємо функцію з вхідними даними і виводимо результат.
@@ -109,6 +135,8 @@ function encodeURLComponent(urlComponent) {
   // Використовуємо вбудовану функцію encodeURIComponent, щоб закодувати введений компонент URL.
   // Ця функція повертає закодований компонент URL, замінивши небезпечні символи на їх процентне кодування.
   // Повертаємо закодований компонент URL.
+  let url = encodeURIComponent(urlComponent);
+  return url;
 }
 
 // Виконуємо функцію з вхідними даними і виводимо результат.
@@ -125,6 +153,8 @@ function encodeURL(url) {
   // Використовуємо вбудовану функцію encodeURI, щоб закодувати введений URL.
   // Ця функція повертає закодований URL, замінивши небезпечні символи на їх процентне кодування.
   // Повертаємо закодований URL.
+  let encodedUrl = encodeURI(url);
+  return encodedUrl;
 }
 
 // Виконуємо функцію з вхідними даними і виводимо результат.
@@ -141,6 +171,9 @@ function decodeURLComponent(urlComponent) {
   // Використовуємо вбудовану функцію decodeURIComponent, щоб декодувати введений закодований компонент URL.
   // Ця функція повертає декодований компонент URL, замінивши процентне кодування символів на їх реальні значення.
   // Повертаємо декодований компонент URL.
+
+  let url = decodeURIComponent(urlComponent);
+  return url;
 }
 
 // Виконуємо функцію з вхідними даними і виводимо результат.
@@ -157,6 +190,8 @@ function decodeURL(url) {
   // Використовуємо вбудовану функцію decodeURI, щоб декодувати введений закодований URL.
   // Ця функція повертає декодований URL, замінивши процентне кодування символів на їх реальні значення.
   // Повертаємо декодований URL.
+  let decodedUrl = decodeURI(url);
+  return decodedUrl;
 }
 
 // Виконуємо функцію з вхідними даними і виводимо результат.
